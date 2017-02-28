@@ -4,8 +4,8 @@ mpl.use('pgf')
 import matplotlib.pyplot as plt
 
 
-def figsize(scale, aspect=None, page_width=390):
-    fig_width_pt = page_width
+def figsize(scale, aspect=None, text_width=390):
+    fig_width_pt = text_width
     # Get this from LaTeX using \the\textwidth
     inches_per_pt = 1.0/72.27
     # Convert pt to inch
@@ -55,10 +55,10 @@ pgf_with_latex = {
 mpl.rcParams.update(pgf_with_latex)
 
 
-def newfig(width, aspect=None):
+def newfig(width, aspect=None, text_width=390):
     # plt.clf()
     # plt.style.use('seaborn-paper')
-    fig = plt.figure(figsize=figsize(width, aspect))
+    fig = plt.figure(figsize=figsize(width, aspect, text_width))
     ax = fig.add_subplot(111)
     return fig, ax
 
